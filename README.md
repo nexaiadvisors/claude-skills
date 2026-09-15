@@ -1,8 +1,8 @@
 # Claude Skills
 
-Two agent skills for [Claude Code](https://claude.com/claude-code), released free under MIT.
+Three agent skills for [Claude Code](https://claude.com/claude-code), released free under MIT.
 
-Both were written for one person's daily use, then stripped of every machine-specific path,
+All three were written for one person's daily use, then stripped of every machine-specific path,
 name and private project reference so they run for anyone. Nothing to sign up for, no telemetry,
 no dependency on the author's setup.
 
@@ -34,16 +34,32 @@ manufacture parallelism: a task with no genuine file-disjoint split becomes exac
 four. It never pushes, opens PRs, or deletes branches. Chips are launched, not executed - a human
 starts them, and that is the approval gate.
 
+### [`verify-deploy-state`](verify-deploy-state/) - is my change actually live?
+
+Answers "did it deploy?" with evidence instead of a green pipeline. It reads the running
+service's own revision, the cloud resource's image and config, the git history behind that
+image, and every path that can deploy the surface, then names the drift and the one next
+action.
+
+The rule it is built on: **staleness has no error state.** A build failure is loud; a deploy
+that never fired is silent, because the old version keeps serving traffic and every health
+check stays green. So the skill reads the running artifact, verifies a database by its objects
+rather than its migration ledger, derives a frontend probe from what the diff emits, and keeps
+"checked, found nothing" separate from "could not check".
+
+Read-only. It changes nothing.
+
 ## Install
 
 Copy either directory into your skills folder:
 
 ```
-cp -R project-sweep ~/.claude/skills/
-cp -R to-chips      ~/.claude/skills/
+cp -R project-sweep       ~/.claude/skills/
+cp -R to-chips            ~/.claude/skills/
+cp -R verify-deploy-state ~/.claude/skills/
 ```
 
-Then invoke with `/project-sweep` or `/to-chips`. Each skill's own README covers prerequisites,
+Then invoke with `/project-sweep`, `/to-chips` or `/verify-deploy-state`. Each skill's own README covers prerequisites,
 arguments, and how it degrades when an optional capability is missing.
 
 ## Feedback

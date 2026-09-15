@@ -1,6 +1,6 @@
 # Claude Skills
 
-Three agent skills for [Claude Code](https://claude.com/claude-code), released free under MIT.
+Three agent skills and a safety guardrails file for [Claude Code](https://claude.com/claude-code), released free under MIT.
 
 All three were written for one person's daily use, then stripped of every machine-specific path,
 name and private project reference so they run for anyone. Nothing to sign up for, no telemetry,
@@ -48,6 +48,14 @@ rather than its migration ledger, derives a frontend probe from what the diff em
 "checked, found nothing" separate from "could not check".
 
 Read-only. It changes nothing.
+
+### [`agent-guardrails`](agent-guardrails/) - three rules for running an agent in production
+
+A drop-in `CLAUDE.md` that holds a coding agent to three safety rules when it can run commands,
+edit files and call tools for you: never take an irreversible action without a human yes, leave a
+trail you can read afterward, and never accept a goal without a boundary on how it may reach it.
+Each rule carries a one-line test. Not a skill, just a file to copy into your repo or your
+`~/.claude/CLAUDE.md`.
 
 ## Install
 

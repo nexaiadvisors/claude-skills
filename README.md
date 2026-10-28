@@ -1,6 +1,6 @@
 # Claude Skills
 
-Three agent skills and a safety guardrails file for [Claude Code](https://claude.com/claude-code), released free under MIT.
+Four agent skills and a safety guardrails file for [Claude Code](https://claude.com/claude-code), released free under MIT.
 
 All three were written for one person's daily use, then stripped of every machine-specific path,
 name and private project reference so they run for anyone. Nothing to sign up for, no telemetry,
@@ -49,6 +49,13 @@ rather than its migration ledger, derives a frontend probe from what the diff em
 
 Read-only. It changes nothing.
 
+### [`long-shift-brief`](long-shift-brief/) - keep an agent working for hours
+
+A 5-question interview that turns a one-line request into a brief an agent can follow
+unattended: a finish line, a self-test it runs after every change, a gold-standard example, an
+off-limits list and a pass limit. Ships as a copy-paste prompt (`PROMPT.md`) that works in
+Claude Code, Cursor, Codex or ChatGPT's agent mode, and as a skill for Claude Code.
+
 ### [`agent-guardrails`](agent-guardrails/) - three rules for running an agent in production
 
 A drop-in `CLAUDE.md` that holds a coding agent to three safety rules when it can run commands,
@@ -65,9 +72,10 @@ Copy either directory into your skills folder:
 cp -R project-sweep       ~/.claude/skills/
 cp -R to-chips            ~/.claude/skills/
 cp -R verify-deploy-state ~/.claude/skills/
+cp -R long-shift-brief    ~/.claude/skills/
 ```
 
-Then invoke with `/project-sweep`, `/to-chips` or `/verify-deploy-state`. Each skill's own README covers prerequisites,
+Then invoke with `/project-sweep`, `/to-chips`, `/verify-deploy-state` or `/long-shift-brief`. Each skill's own README covers prerequisites,
 arguments, and how it degrades when an optional capability is missing.
 
 ## Feedback

@@ -15,4 +15,4 @@ starts only after you say `yes`. Then it works through `TASKS.md`, tests every c
 notes in `PROGRESS.md`, re-reads the brief every 5 passes, and follows three safety rails: never
 weaken a test, stop at the pass limit, and never send, charge, delete, publish or deploy without you.
 
-From the video "How I keep AI agents busy for 12 hours" on the NexAI Advisors YouTube channel.
+From the NexAI Advisors YouTube video "How I Keep My AI Agents Working for 12 Hours Straight".

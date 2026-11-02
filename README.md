@@ -1,6 +1,6 @@
 # Claude Skills
 
-Four agent skills and a safety guardrails file for [Claude Code](https://claude.com/claude-code), released free under MIT.
+Five agent skills and a safety guardrails file for [Claude Code](https://claude.com/claude-code), released free under MIT.
 
 All three were written for one person's daily use, then stripped of every machine-specific path,
 name and private project reference so they run for anyone. Nothing to sign up for, no telemetry,
@@ -63,6 +63,19 @@ edit files and call tools for you: never take an irreversible action without a h
 trail you can read afterward, and never accept a goal without a boundary on how it may reach it.
 Each rule carries a one-line test. Not a skill, just a file to copy into your repo or your
 `~/.claude/CLAUDE.md`.
+
+### [`ai-crawler-audit`](ai-crawler-audit/) - can ChatGPT find and recommend your business?
+
+Checks whether AI answer engines can reach your site and what they say about you. It asks
+ChatGPT and Perplexity the questions your buyers ask (several times each, because answers
+change), checks you are indexed on Bing and Google, tests whether AI crawlers are blocked by your
+robots.txt, CDN or host, measures how much of each key page is readable without JavaScript, and
+checks that your business name, contact details and facts match everywhere. It ranks findings by
+2026 evidence, says plainly which popular tricks don't work (llms.txt, "best X" pages, FAQ schema
+for citations), and only changes your site when you ask it to.
+
+Built for owners of small service businesses who have heard "buyers ask ChatGPT now" and want to
+know whether it can see them.
 
 ## Install
 

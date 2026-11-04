@@ -77,6 +77,16 @@ for citations), and only changes your site when you ask it to.
 Built for owners of small service businesses who have heard "buyers ask ChatGPT now" and want to
 know whether it can see them.
 
+### [`expression-bank`](expression-bank/) - photos of you making any face, that still look like you
+
+Give it 3-12 good photos of yourself and it makes the expressions you need for thumbnails, flyers
+and video covers: surprised, skeptical, worried, excited, pointing, holding a phone, or anything you
+describe. It grades your reference photos first and flags weak ones (too small, blurry, more than
+one face, someone else) before spending anything. It generates with GPT Image and/or Gemini, scores
+every face against your own photos with a free local face match, keeps only the ones that still
+look like you, and hands back one labelled sheet. It refuses to run without your own API key,
+without your consent that the face is yours, or over a \$3 cap. Setup: `expression-bank/references/setup.md`.
+
 ## Install
 
 Copy either directory into your skills folder:
@@ -86,6 +96,7 @@ cp -R project-sweep       ~/.claude/skills/
 cp -R to-chips            ~/.claude/skills/
 cp -R verify-deploy-state ~/.claude/skills/
 cp -R long-shift-brief    ~/.claude/skills/
+cp -R expression-bank     ~/.claude/skills/
 ```
 
 Then invoke with `/project-sweep`, `/to-chips`, `/verify-deploy-state` or `/long-shift-brief`. Each skill's own README covers prerequisites,

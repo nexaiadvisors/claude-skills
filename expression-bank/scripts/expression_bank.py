@@ -16,7 +16,7 @@ pinned SHA-256 hashes). Each image is compared with the reference photos (median
   KEEP   >= 0.72     REVIEW 0.55-0.72 (check by eye)     REJECT < 0.55 (not the same person)
 Calibrated 2026-11-04 on a real run: the rejected faces a person said "don't look like me" scored 0.08-0.53.
 """
-import argparse, base64, hashlib, json, os, statistics, sys, time, urllib.error, urllib.request, uuid
+import argparse, base64, hashlib, json, os, re, statistics, sys, time, urllib.error, urllib.request, uuid
 from pathlib import Path
 
 VERSION = "1.0.0"
@@ -200,6 +200,8 @@ def load_shots(path):
     for s in shots:
         if not {"id", "expression"} <= set(s):
             die("each shot in --shots needs at least 'id' and 'expression'")
+        if not re.fullmatch(r"[A-Za-z0-9_-]{1,40}", str(s["id"])):  # ids become file names; no paths
+            die(f"shot id {s['id']!r} must be 1-40 letters, digits, - or _")
     return shots
 
 
